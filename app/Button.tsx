@@ -1,5 +1,5 @@
 import * as React from 'react'
-import styles from './Button.scss'
+const styles = require('./Button.scss')
 
 interface IProps {
   text?: string,

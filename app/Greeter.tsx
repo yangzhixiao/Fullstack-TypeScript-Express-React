@@ -1,14 +1,18 @@
 // import config from './config.json';
 import * as React from 'react'
-import styles from './Greeter.scss'; //导入
+const styles = require('./Greeter.scss'); //导入
 import { hi } from './utils'
-import Button from 'Button';
-// import { message } from 'antd';
+import Button from './Button';
+import { message } from 'antd';
+import { observer } from 'mobx-react'
+import store from './store'
 
+@observer
 export default class Greeter extends React.Component {
 
   public handleClick = () => {
-    // message.info('aaa')
+    message.info('aaa')
+    store.show = !store.show
   }
 
   render() {
@@ -16,7 +20,11 @@ export default class Greeter extends React.Component {
       <div className={styles.greeter}>
         Hi there and greetings from JSON!
         <div className={styles.hi}>o, {hi('11111')}</div>
-        <div className={styles.nice}>Very 奈斯!</div>
+        {store.show ? 
+          <div className={styles.nice}>Very 奈斯!</div>
+          :
+          <div>Not nice</div>
+        }
         <Button text='Button GGG' onClick={this.handleClick} />
         
       </div>
