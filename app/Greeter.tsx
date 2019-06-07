@@ -10,15 +10,20 @@ import store from './store'
 @observer
 export default class Greeter extends React.Component {
 
+  public componentDidMount() {
+    store.sayHi()
+  }
+
   public handleClick = () => {
     message.info('aaa')
+    store.sayHi()
     store.show = !store.show
   }
 
   render() {
     return (
       <div className={styles.greeter}>
-        Hi there and greetings from JSON!
+        <div>{store.greeter || 'Loading...'}</div>
         <div className={styles.hi}>o, {hi('11111')}</div>
         {store.show ? 
           <div className={styles.nice}>Very 奈斯!</div>
@@ -26,7 +31,6 @@ export default class Greeter extends React.Component {
           <div>Not nice</div>
         }
         <Button text='Button GGG' onClick={this.handleClick} />
-        
       </div>
     )
   }

@@ -28,7 +28,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /(\.tsx|\.ts)$/,
+        test: /\.tsx?$/,
         loaders: ["babel-loader", "ts-loader"],
         include: path.resolve('app'),
         exclude: /node_modules/
