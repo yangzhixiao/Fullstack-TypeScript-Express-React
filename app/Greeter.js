@@ -8,7 +8,7 @@ export default class Greeter extends React.Component {
     return (
       <div className={styles.greeter}>
         {config.greetText}
-        <div className={styles.hi}>o, {hi('666')}</div>
+        <div className={styles.hi}>o, {hi('222')}</div>
         <div className={styles.yo}>Very 奈斯!</div>
       </div>
     )
