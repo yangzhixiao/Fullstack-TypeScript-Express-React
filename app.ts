@@ -17,9 +17,9 @@ if (isDevelopment) {
     publicPath: config.output.publicPath,
   }));
   app.use(webpackHotMiddleware(compiler));
-} else {
-  app.use(express.static(DIST_DIR));
 }
+
+app.use(express.static(DIST_DIR));
 
 app.get('/', (req, res) => {
   res.sendFile(HTML_FILE)
