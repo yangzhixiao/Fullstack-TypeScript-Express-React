@@ -8,7 +8,7 @@ module.exports = {
   
   entry: [
     'webpack-hot-middleware/client',
-    __dirname + "/app/main.js"
+    __dirname + "/app/main.tsx"
   ],
   output: {
     path: path.resolve(__dirname,'build') ,
@@ -17,13 +17,20 @@ module.exports = {
     sourceMapFilename: 'bundle.map',
   },
 
+  // 告诉 Webpack 加载 TypeScript 文件
+  resolve: {
+    // 首先寻找模块中的 .ts(x) 文件, 然后是 .js 文件
+    extensions: ['.ts', '.tsx', '.js'],
+    // 在模块中添加 src, 当你导入文件时，可以将 src 作为相关路径
+    modules: ['app', 'node_modules'],
+  },
+
   module: {
     rules: [
       {
-        test: /(\.jsx|\.js)$/,
-        use: {
-          loader: "babel-loader",
-        },
+        test: /(\.tsx|\.ts)$/,
+        loaders: ["babel-loader", "ts-loader"],
+        include: path.resolve('app'),
         exclude: /node_modules/
       },
       {

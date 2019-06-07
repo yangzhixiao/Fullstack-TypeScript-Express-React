@@ -1,4 +1,4 @@
-const hi = (hi) => {
+const hi = (hi: string) => {
   return hi + ', world, 1111'
 }
 
