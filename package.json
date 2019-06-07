@@ -18,7 +18,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "NODE_ENV=development ./node_modules/.bin/ts-node index.ts",
-    "copy": "cp ./node_modules/antd/dist/antd.min.css ./build",
+    "copy": "mkdir -p ./build && cp ./node_modules/antd/dist/antd.min.css ./build",
     "build": "NODE_ENV=production webpack --config ./webpack.config.prod.js --progress && yarn copy",
     "prod": "NODE_ENV=production ./node_modules/.bin/ts-node index.ts"
   },
