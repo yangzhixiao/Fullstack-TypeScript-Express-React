@@ -4,8 +4,10 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "@types/antd": "^1.0.0",
     "@types/react": "^16.8.19",
     "@types/react-dom": "^16.8.4",
+    "antd": "^3.19.2",
     "express": "^4.17.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
@@ -13,7 +15,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "NODE_ENV=development node index.js",
-    "build": "NODE_ENV=production webpack --config ./webpack.production.config.js --progress"
+    "copy": "cp ./node_modules/antd/dist/antd.min.css ./build",
+    "build": "NODE_ENV=production webpack --config ./webpack.production.config.js --progress && yarn copy"
   },
   "devDependencies": {
     "autoprefixer": "^9.6.0",

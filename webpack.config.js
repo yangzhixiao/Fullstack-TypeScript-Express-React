@@ -11,7 +11,7 @@ module.exports = {
     __dirname + "/app/main.tsx"
   ],
   output: {
-    path: path.resolve(__dirname,'build') ,
+    path: __dirname + '/build',
     filename: "bundle.js",
     publicPath: '/',
     sourceMapFilename: 'bundle.map',

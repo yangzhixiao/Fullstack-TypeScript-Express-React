@@ -1,16 +1,27 @@
 import * as React from 'react'
+import styles from './Button.scss'
 
 interface IProps {
-  text: string
+  text?: string,
+  onClick?: () => void,
 }
 
 export default class Button extends React.Component<IProps, any> {
+  static defaultProps: IProps = {
+    text: 'Button',
+    onClick: () => {},
+  }
+  public handleClick = () => {
+    this.props.onClick!()
+  }
   public render() {
     return (
-      <div style={{
-        lineHeight: '30px',
-        color: 'Blue'
-      }}>{this.props.text}</div>
+      <div
+        className={styles.button}
+        onClick={this.handleClick}
+      >
+        {this.props.text}
+      </div>
     )
   }
 }

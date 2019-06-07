@@ -1,4 +1,5 @@
 const webpack = require('webpack')
+const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
@@ -8,26 +9,26 @@ module.exports = {
   mode: 'production',
   devtool: false, //注意修改了这里，这能大大压缩我们的打包代码
   
-  entry:  __dirname + "/app/main.js",//已多次提及的唯一入口文件
+  entry:  __dirname + "/app/main.tsx",//已多次提及的唯一入口文件
   output: {
     path: __dirname + "/build",//打包后的文件存放的地方
     filename: "bundle.[hash].js"//打包后输出文件的文件名
   },
 
-  devServer: {
-    contentBase: "./build",//本地服务器所加载的页面所在的目录
-    historyApiFallback: true,//不跳转
-    inline: true,//实时刷新
-    hot: true,
+  // 告诉 Webpack 加载 TypeScript 文件
+  resolve: {
+    // 首先寻找模块中的 .ts(x) 文件, 然后是 .js 文件
+    extensions: ['.ts', '.tsx', '.js'],
+    // 在模块中添加 src, 当你导入文件时，可以将 src 作为相关路径
+    modules: ['app', 'node_modules'],
   },
 
   module: {
     rules: [
       {
-        test: /(\.jsx|\.js)$/,
-        use: {
-          loader: "babel-loader",
-        },
+        test: /(\.tsx|\.ts)$/,
+        loaders: ["babel-loader", "ts-loader"],
+        include: path.resolve('app'),
         exclude: /node_modules/
       },
       {
