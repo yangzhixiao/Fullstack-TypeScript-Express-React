@@ -10,8 +10,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack",
-    "server": "node index.js",
+    "start": "NODE_ENV=development node index.js",
     "build": "NODE_ENV=production webpack --config ./webpack.production.config.js --progress"
   },
   "devDependencies": {
