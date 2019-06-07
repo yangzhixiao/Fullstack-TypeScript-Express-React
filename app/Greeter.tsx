@@ -3,12 +3,12 @@ import * as React from 'react'
 import styles from './Greeter.scss'; //导入
 import { hi } from './utils'
 import Button from 'Button';
-const antd = require('antd')
+// import { message } from 'antd';
 
 export default class Greeter extends React.Component {
 
   public handleClick = () => {
-    antd.message.info('aaa')
+    // message.info('aaa')
   }
 
   render() {
