@@ -5,7 +5,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
-process.env.NODE_ENV = 'production';
+// process.env.NODE_ENV = 'production';
 
 module.exports = {
   mode: 'production',
@@ -73,11 +73,11 @@ module.exports = {
       verbose: true,
       dry: false
     }),
-    // new webpack.DefinePlugin({
-    //   'process.env': {
-    //     NODE_ENV: JSON.stringify('production')
-    //   },
-    // }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production')
+      },
+    }),
   ],
 
   optimization: {

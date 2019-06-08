@@ -5,7 +5,6 @@ import * as config from './webpack.config.dev';
 
 const app = express(),
   DIST_DIR = path.join(__dirname, 'public'),
-  HTML_FILE = path.join(DIST_DIR, 'index.html'),
   compiler = webpack(config),
   isDevelopment = process.env.NODE_ENV === 'development';
 

@@ -18,9 +18,9 @@
   },
   "scripts": {
     "clear": "rm -rf ./public/index.html && rm -rf ./public/bundle.*.js",
-    "start": "cross-env NODE_ENV=development ./node_modules/.bin/ts-node index.ts",
+    "dev": "rm -rf ./build/* && cross-env NODE_ENV=development ./node_modules/.bin/ts-node index.ts",
     "copy": "mkdir -p ./public && cp ./node_modules/antd/dist/antd.min.css ./public && cp ./build/* ./public",
-    "build": "cross-env NODE_ENV=production && yarn clear && webpack --config ./webpack.config.prod.js --progress && yarn copy && rm -rf ./build/*",
+    "deploy": "yarn clear && cross-env NODE_ENV=production webpack --config ./webpack.config.prod.js --progress && yarn copy && rm -rf ./build/*",
     "prod": "cross-env NODE_ENV=production ./node_modules/.bin/ts-node index.ts"
   },
   "devDependencies": {
