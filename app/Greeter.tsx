@@ -24,7 +24,7 @@ export default class Greeter extends React.Component {
     return (
       <div className={styles.greeter}>
         <div>{store.greeter || 'Loading...'}</div>
-        <div className={styles.hi}>o, {hi('666')}</div>
+        <div className={styles.hi}>o, {hi('6969696')}</div>
         {store.show ? 
           <div className={styles.nice}>Very 奈斯!</div>
           :
