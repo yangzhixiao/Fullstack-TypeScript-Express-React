@@ -13,8 +13,6 @@ module.exports = {
   output: {
     path: __dirname + '/build',
     filename: "bundle.js",
-    publicPath: '/',
-    sourceMapFilename: 'bundle.map',
   },
 
   // 告诉 Webpack 加载 TypeScript 文件
@@ -60,7 +58,7 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: JSON.stringify(process.env.NODE_ENV)
+        NODE_ENV: JSON.stringify('development')
       },
     }),
   ],

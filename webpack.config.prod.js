@@ -5,6 +5,8 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
+process.env.NODE_ENV = 'production';
+
 module.exports = {
   mode: 'production',
   devtool: false, //注意修改了这里，这能大大压缩我们的打包代码
@@ -70,7 +72,12 @@ module.exports = {
     new CleanWebpackPlugin({
       verbose: true,
       dry: false
-    })
+    }),
+    // new webpack.DefinePlugin({
+    //   'process.env': {
+    //     NODE_ENV: JSON.stringify('production')
+    //   },
+    // }),
   ],
 
   optimization: {

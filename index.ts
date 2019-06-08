@@ -11,7 +11,11 @@ app.get('*', (req, res) => {
         return res.sendFile(p)
     }
   }
-  res.redirect(301, '/')
+  if (process.env.NODE_ENV === 'development') {
+    res.sendFile(path.resolve('build', 'index.html'))
+  } else {
+    res.sendFile(path.resolve('public', 'index.html'))
+  }
 });
 
 app.listen(process.env.PORT || 4200, () => {
